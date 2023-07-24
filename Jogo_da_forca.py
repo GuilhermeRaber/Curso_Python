@@ -21,7 +21,7 @@ Faça a contagem de tentativas do seu usuário."""
 """
 
 i=0
-escolha = input('Escolha uma dificuldade: 1. Noob, 2. Facil, 3. Medio, 4. Dificil ou 5. Boss.')
+escolha = input('Escolha uma dificuldade: 1. Noob, 2. Facil, 3. Medio, 4. Dificil ou 5. Boss: ')
 if escolha == '1': 
     palavra = 'cano'
     comprimento = 4
@@ -44,6 +44,7 @@ try:
 except:
     while escolha != "1" and escolha != "2" and escolha != "3" and escolha != "4" and escolha != "5":
         print('Digite uma opção válida!')
+        escolha = input('Escolha uma dificuldade: 1. Noob, 2. Facil, 3. Medio, 4. Dificil ou 5. Boss: ')
         if escolha == '1': 
             palavra = 'cano'
             comprimento = 4
@@ -77,8 +78,9 @@ while True:
                     palavra_formada += letra
                 else:
                     palavra_formada += '*'
-            print(palavra_formada)
+            print(palavra_formada.upper())
             if len(acertos) == comprimento:
+                palavra = palavra.upper()
                 print(f'GANHOU! Você acertou a palavra {palavra} inteira em {i} tentativas!')
                 break
         else:
