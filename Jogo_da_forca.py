@@ -21,35 +21,46 @@ Faça a contagem de tentativas do seu usuário."""
 """
 
 i=0
-escolha = input('Escolha uma palavra de 1 a 3: ')
+escolha = input('Escolha uma dificuldade: 1. Noob, 2. Facil, 3. Medio, 4. Dificil ou 5. Boss.')
 if escolha == '1': 
+    palavra = 'maca'
+    comprimento = 3
+elif escolha == '2': 
     palavra = 'facil'
     comprimento = 5
-elif escolha == '2': 
+elif escolha == '3': 
     palavra = 'facilimo'
     comprimento = 7
-elif escolha == '3': 
+elif escolha == '4': 
     palavra = 'facilissimo'
     comprimento = 8
-else: 
-    print('escolha uma opção válida!')
+elif escolha == '5': 
+    palavra = 'procrastinar'
+    comprimento = 9
+
 
 try:
-    print(palavra)
+    print(f'A Palavra tem {len(palavra)} letras')
 except:
-    while escolha != "1" and escolha != "2" and escolha != "3":
+    while escolha != "1" and escolha != "2" and escolha != "3" and escolha != "4" and escolha != "5":
         print('Digite uma opção válida!')
-        escolha = input('Escolha uma palavra de 1 a 3: ')
-        if escolha == "1": 
+        if escolha == '1': 
+            palavra = 'maca'
+            comprimento = 3
+        elif escolha == '2': 
             palavra = 'facil'
             comprimento = 5
-        elif escolha == "2": 
+        elif escolha == '3': 
             palavra = 'facilimo'
             comprimento = 7
-        elif escolha == "3": 
+        elif escolha == '4': 
             palavra = 'facilissimo'
             comprimento = 8
+        elif escolha == '5': 
+            palavra = 'procrastinar'
+            comprimento = 9
 
+        
 acertos = ''
 while True:
     if i < 15:
@@ -64,13 +75,9 @@ while True:
             palavra_formada = ''
             for letra in palavra:
                 if letra in acertos:
-                    # print(letra)
                     palavra_formada += letra
-                    # print(palavra_formada)
                 else:
-                    # print('*')
                     palavra_formada += '*'
-                    # print(palavra_formada)
             print(palavra_formada)
             if len(acertos) == comprimento:
                 print(f'GANHOU! Você acertou a palavra {palavra} inteira em {i} tentativas!')
