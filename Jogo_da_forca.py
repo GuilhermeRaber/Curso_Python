@@ -34,36 +34,49 @@ elif escolha == '3':
 else: 
     print('escolha uma opção válida!')
 
-acertos = ''
-
 try:
-    while True:
-        if i < 15:
-            i += 1
-            letra = input(f'Tentativa número {i}. Digite uma letra: ')
-            if len(letra) > 1:
-                print('Voce digitou mais de uma letra')
-                continue
-            elif letra in palavra:
-                print(f'A letra {letra} está na palavra')
-                acertos += letra
-                palavra_formada = ''
-                for letra in palavra:
-                    if letra in acertos:
-                        # print(letra)
-                        palavra_formada += letra
-                        # print(palavra_formada)
-                    else:
-                        # print('*')
-                        palavra_formada += '*'
-                        # print(palavra_formada)
-                print(palavra_formada)
-                if len(acertos) == comprimento:
-                    print(f'GANHOU! Você acertou a palavra {palavra} inteira em {i} tentativas!')
-                    break
-            else:
-                print(f'A letra {letra} não está na palavra')
+    print(palavra)
+except:
+    while escolha != "1" and escolha != "2" and escolha != "3":
+        print('Digite uma opção válida!')
+        escolha = input('Escolha uma palavra de 1 a 3: ')
+        if escolha == "1": 
+            palavra = 'facil'
+            comprimento = 5
+        elif escolha == "2": 
+            palavra = 'facilimo'
+            comprimento = 7
+        elif escolha == "3": 
+            palavra = 'facilissimo'
+            comprimento = 8
+
+acertos = ''
+while True:
+    if i < 15:
+        i += 1
+        letra = input(f'Tentativa número {i}. Digite uma letra: ')
+        if len(letra) > 1:
+            print('Voce digitou mais de uma letra')
+            continue
+        elif letra in palavra:
+            print(f'A letra {letra} está na palavra')
+            acertos += letra
+            palavra_formada = ''
+            for letra in palavra:
+                if letra in acertos:
+                    # print(letra)
+                    palavra_formada += letra
+                    # print(palavra_formada)
+                else:
+                    # print('*')
+                    palavra_formada += '*'
+                    # print(palavra_formada)
+            print(palavra_formada)
+            if len(acertos) == comprimento:
+                print(f'GANHOU! Você acertou a palavra {palavra} inteira em {i} tentativas!')
+                break
         else:
-            print(f'Voce atingiu o limite de 15 tentativas. A palavra secreta era: {palavra}')
-            break
-except: print('erro')
+            print(f'A letra {letra} não está na palavra')
+    else:
+        print(f'Voce atingiu o limite de 15 tentativas. A palavra secreta era: {palavra}')
+        break
