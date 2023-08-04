@@ -47,6 +47,12 @@ while True:
             print(f'{apagado} removido da lista.')
             continue
         else:
+            print(f'O índice {apagar} não existe na lista de compras!')
+            print('Confira a lista de compras atual abaixo:')
+            i=0
+            for nome in lista_compras:
+                print(i, nome)
+                i += 1
             continue
     elif escolha == 'l':
         i=0
@@ -60,12 +66,16 @@ while True:
                 continue
     elif escolha == 'sair':
         print('Você encerrou o programa "Lista de Compras"')
-        print('A sua lista final é:')
-        i=0
-        for nome in lista_compras:
-            print(i, nome)
-            i += 1
-        break
+        if lista_compras == []:
+            print('A sua Lista de Compras está vazia.')
+            break
+        else:
+            print('A sua lista final é:')
+            i=0
+            for nome in lista_compras:
+                print(i, nome)
+                i += 1
+            break
     else:
         print(f'{escolha} não é uma opção válida')
         continue
