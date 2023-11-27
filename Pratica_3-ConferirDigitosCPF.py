@@ -23,3 +23,28 @@ contrário disso:
 
 O primeiro dígito do CPF é 7
 """
+
+
+cpf = input("Digite os 9 primeiros dígitos do CPF a conferir:")
+cpf1 = str(cpf)
+cpflista=list(cpf1)
+print(cpflista)
+if len(cpf1) == 9:
+    i=0
+    contador = 10
+    soma=0
+    while contador >= 2:
+        multiplicacao = contador * int(cpflista[i])
+        soma = soma + multiplicacao
+        contador = contador-1
+    multiplicacao2 = soma * 10
+    resto = multiplicacao2 % 11
+    if resto > 9:
+        digito1 = 0
+        print('O primeiro dígito é 0')
+    else:
+        digito1 = resto
+        print(f'O primeiro dígito é {digito1}')
+
+else:
+    print('Erro! Numero invalido.')
