@@ -25,10 +25,9 @@ O primeiro dígito do CPF é 7
 """
 
 
-cpf = input("Digite os 9 primeiros dígitos do CPF a conferir:")
-cpf1 = str(cpf)
+cpf = input("CPF a conferir:")
+cpf1 = str(cpf[:9])
 cpflista=list(cpf1)
-print(f'O CPF digitado foi: {cpf} _ _')
 if len(cpf1) == 9:
     i=0
     contador = 10
@@ -37,8 +36,8 @@ if len(cpf1) == 9:
     while contador >= 2:
         calculo = contador * int(cpflista[i])
         multiplicacao.append(calculo)
-        contador = contador-1
-        i = i+1
+        contador -= 1
+        i += 1
     soma = sum(multiplicacao) * 10
     resto = soma % 11
     if resto > 9:
@@ -47,7 +46,6 @@ if len(cpf1) == 9:
     else:
         digito1 = resto
         print(f'O primeiro dígito é {digito1}')
-    print(f'O CPF atualizado é: {cpf} {digito1} _')
 
 else:
     print('Erro! Numero invalido.')
