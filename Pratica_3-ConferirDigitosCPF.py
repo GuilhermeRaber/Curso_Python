@@ -29,17 +29,13 @@ cpf = input("CPF a conferir:")
 cpf1 = str(cpf[:9])
 cpflista=list(cpf1)
 if len(cpf1) == 9:
-    i=0
     contador = 10
     soma=0
-    multiplicacao = []
-    while contador >= 2:
-        calculo = contador * int(cpflista[i])
-        multiplicacao.append(calculo)
+    calculo=0
+    for digito in cpf1:
+        calculo += contador * int(digito) * 10
         contador -= 1
-        i += 1
-    soma = sum(multiplicacao) * 10
-    resto = soma % 11
+    resto = calculo % 11
     if resto > 9:
         digito1 = 0
         print('O primeiro dígito é 0')
