@@ -36,12 +36,9 @@ if len(cpf1) == 9:
         calculo += contador * int(digito) * 10
         contador -= 1
     resto = calculo % 11
-    if resto > 9:
-        digito1 = 0
-        print('O primeiro dígito é 0')
-    else:
-        digito1 = resto
-        print(f'O primeiro dígito é {digito1}')
+    digito1 = resto if resto <= 9 else 0
+    
+    print(f'O primeiro dígito é {digito1}')
 
 else:
     print('Erro! Numero invalido.')
