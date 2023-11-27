@@ -42,3 +42,22 @@ if len(cpf1) == 9:
 
 else:
     print('Erro! Numero invalido.')
+calculo2=0
+cpfnovo = list(cpf1)
+cpfnovo.append(digito1)
+contador2 = 11
+for digito in cpfnovo:
+    calculo2 += contador2 * int(digito) * 10
+    contador2 -= 1
+resto2 = calculo2 % 11
+digito2 = resto2 if resto2 <= 9 else 0
+cpfnovo.append(digito2)
+print(f'O segundo dígito é {digito2}')
+
+cpffinal = (f'{cpf1}{digito1}{digito2}')
+print(cpffinal)
+
+if cpf == cpffinal:
+    print('O CPF é válido')
+else:
+    print('O CPF não é válido')
